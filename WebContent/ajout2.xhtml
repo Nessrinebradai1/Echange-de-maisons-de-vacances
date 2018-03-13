@@ -1,0 +1,284 @@
+<!-- 
+
+<!DOCTYPE html>
+<html lang="fr"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>ajouter offre</title>
+          <h:outputStylesheet library="default" name="css/form.css"  />
+    </h:head>
+    <h:body>
+        <h2>welcome: <h:outputText id="login" value="#{loginBean.login}"  /></h2>
+        <h:link outcome="index.xhtml" value="Acceuil" styleClass="link"/>
+        <h1> Ajouter une offre</h1>
+ 
+        <h:form>
+        
+        
+        
+       <p:panelGrid columns="2">
+    <f:facet name="header">
+        Basic PanelGrid
+    </f:facet>
+ 
+    <h:outputLabel for="firstname" value="Firstname: *" />
+    <p:inputText id="firstname" value="" label="Firstname" />
+ 
+    <h:outputLabel for="surname" value="Surname: *" />
+    <p:inputText id="surname" value="" required="true" label="Surname"/>
+ 
+    <f:facet name="footer">
+        <p:commandButton type="button" value="Save" icon="ui-icon-check" style="margin:0"/>
+    </f:facet>
+</p:panelGrid>
+ 
+ 
+        
+        
+        
+        
+        
+        <h:inputText id="nom_Ofr" value="#{Offre.nom_Ofr}" required="true" label="Mot de
+passe" requiredMessage="Veuillez saisir la confirmation du mot de passe" />
+      
+         <br /> 
+        
+           
+                <h:outputLabel for="nom_Ofr"  value="Nom de l'offre:"/>
+                <h:inputText id="nom" value="#{offre.nom_Ofr}" label="Nom de l'offre" />
+                
+                 <br />
+                <h:outputLabel for="nom_deposeur"  value="Nom de déposeur de l'offre:"/>
+                <h:inputText id="nom_deposeur" value="#{offre.nom_deposeur}" label="Nom de déposeur de l'offre" />
+                 <br />
+                
+                
+	        <h:outputLabel for="nature_bien">Nature de bien <span class="requis">*</span></h:outputLabel>
+	        
+	      <h:selectOneMenu value="#{offre.nature_bien}">
+   	 
+   	
+   	<f:selectItem itemLabel="Maison" itemValue="#{offre.nature_bien}" />
+   	<f:selectItem itemLabel="studio" itemValue="#{offre.nature_bien}" />
+   	<f:selectItem itemLabel="appartement" itemValue="#{offre.nature_bien}" />
+   	<f:selectItem itemLabel="bkcbskbbhv" itemValue="#{offre.nature_bien}" />
+	<f:selectItem itemLabel="autre choix" itemValue="false" />
+	
+ </h:selectOneMenu>
+                
+      <br />  
+	        <h:outputLabel for="zone_geographique">Zone géographique <span class="requis">*</span></h:outputLabel>
+	        
+	      <h:selectOneMenu value="#{offre.zone_geographique}">
+   	
+   	
+   	<f:selectItem itemLabel="zone Saharienne" itemValue="#{offre.zone_geographique}" />
+   	<f:selectItem itemLabel="Zone Sahelienne" itemValue="#{offre.zone_geographique}" />
+   	<f:selectItem itemLabel="Zone Civile " itemValue="#{offre.zone_geographique}" />
+   	<f:selectItem itemLabel="compagne" itemValue="#{offre.zone_geographique}" />
+	<f:selectItem itemLabel="autre choix" itemValue="false" />
+	
+ </h:selectOneMenu>
+                
+                 <br />
+	        <h:outputLabel for="Date_dispo1">De <span class="requis">*</span></h:outputLabel>
+                
+                <h:outputText value="#{Offre.date_dispo1}" >
+              <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+ </h:outputText>
+  <br />
+   <br />
+ <h:outputLabel for="Date_dispo2">jusqu'à <span class="requis">*</span></h:outputLabel>
+ 
+                
+                <h:outputText value="#{Offre.date-dispo2}" >
+              <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+ </h:outputText>          
+ 
+	  <br />
+	  <br />      
+	        <h:outputLabel for="conditions_echnage">Conditions d'échange<span class="requis">*</span></h:outputLabel>
+                <h:inputText  id="conditions_echange" value="#{offre.conditions_echange}" label="Conditions_echange" />
+               
+                 <br />
+        
+                <h:outputLabel for="email_deposeur"> Email de déposeur <span class="requis">*</span></h:outputLabel>
+                <h:inputText id="email_deposeur" value="#{offre.email_deposeur}" label="Email_deposeur" />
+                
+                 <br />
+        
+                <h:outputLabel for="prenom_deposeur">  Prénom de déposeur <span class="requis">*</span></h:outputLabel>
+                <h:inputText id="prenom_deposeur" value="#{offre.prenom_deposeur}" label="Prenom_deposeur:" />
+                
+                 <br />
+        
+           
+           <h:outputLabel for="tel_deposeur">  Téléphone de déposeur <span class="requis">*</span></h:outputLabel>
+                <h:inputText id="tel_deposeur" value="#{offre.tel_deposeur}" label="tel_deposeur:" />
+                
+                 <br />
+                
+                
+                <h:outputLabel for="pays_Ofr">  Pays de l'offre <span class="requis">*</span></h:outputLabel>
+                <h:inputText id="pays_Ofr" value="#{offre.pays_Ofr}" label="pays_Ofr" />
+                
+                
+                
+                 <br />
+                 
+                <h:outputLabel for="region_Ofr">  Région de l'offre <span class="requis">*</span></h:outputLabel>
+                <h:inputText id="region_Ofr" value="#{offre.region_Ofr}" label="region_Ofr" />
+                
+                
+                 
+                 <br />
+                
+                 <h:outputLabel for="pieces_dispo">Pièces disponibles <span class="requis">*</span></h:outputLabel>
+	        
+	      <h:selectOneMenu value="#{offre.pieces_dispo}">
+   	
+   	
+   	<f:selectItem itemLabel="S+1+Salle de bain+cuisine" itemValue="#{offre.pieces_dispo}" />
+   	<f:selectItem itemLabel="S+2+Salle de bain+cuisine" itemValue="#{offre.pieces_dispo}" />
+   	<f:selectItem itemLabel="S+3+Salle de bain+cuisine" itemValue="#{offre.pieces_dispo}" />
+	<f:selectItem itemLabel="S+1+Salle de bain+cuisine+..." itemValue="false" />
+	
+ </h:selectOneMenu>
+                
+      
+      
+       <br />
+ <h:outputLabel for="pays_voulu">  Où voulez_vous passez tes vacances <span class="requis">*</span></h:outputLabel>
+                <h:inputText id="pays_voulu" value="#{offre.pays_voulu}" label="pays_voulu" />   
+                
+                 <br />
+                
+                 <br />
+  <h:outputLabel for="min_pieces_voulu"> quel le nombre minimal de  pices que vous cherchez à trouver<span class="requis">*</span></h:outputLabel>
+                <h:selectOneMenu value="#{offre.pieces_dispo}">
+   	
+   	
+   	<f:selectItem itemLabel="S+1+Salle de bain+cuisine" itemValue="#{offre.min_pieces_voulu}" />
+   	<f:selectItem itemLabel="S+2+Salle de bain+cuisine" itemValue="#{offre.min_pieces_voulu}" />
+   	<f:selectItem itemLabel="S+3+Salle de bain+cuisine" itemValue="#{offre.min_pieces_voulu}" />
+	<f:selectItem itemLabel="S+1+Salle de bain+cuisine+..." itemValue="false" />
+	
+ </h:selectOneMenu>
+                 <br />
+                
+                 <br />
+                 
+                <h:outputLabel for="region_voulu">Quelle ville de ce pays voulez_vous psser vos vacances </h:outputLabel>
+                <h:inputText id="region_voulu" value="#{offre.region_voulu}" label="region_voulu" />
+             
+                
+                
+                
+                 <br />
+                
+                 <br />
+                
+                
+                
+                <h:commandButton  value="Valider"  type="submit" action="#{offre.add()}"/>
+                <br/>
+            
+        </h:form>
+        <br/>
+        <h2><h:outputText  value="#{offre.message}"/></h2>
+ 
+        <h:form>
+            <h:commandButton value="Liste des produits" type="submit" action="#{offre.initList()}" />
+        </h:form>
+    </h:body>
+</html>
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+--> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Echange de maisons de vacances</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'></link>
+
+<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" ></link>
+
+<link href="web/css/slimmenu.css" rel="stylesheet" media="screen"></link>
+
+<link rel="stylesheet" type="text/css" href="web/css/magnific-popup.css"></link>
+
+<script src="web/js/jquery.min.js"></script>
+</h:head>
+	
+<h:body>
+
+<p:tabMenu >
+<p:menuitem value="Accueil" url="/faces/login.xhtml" />
+    <p:menuitem value="S'inscrire" url="/faces/inscription.xhtml" />
+    <p:menuitem value="Consulter" url="/ui/tabMenuDemos.jsf"  />
+    <p:menuitem value="Déposer" url="/ui/tabMenuDocumentation.jsf" />
+    <p:menuitem value="S'authentifier" url="/ui/tabMenuSupport.jsf" />
+    <p:menuitem value="Administrateur" url="/ui/tabMenuSocial.jsf"/>
+</p:tabMenu>
+			         
+			         <div class="content" id="home">
+			 
+		 	<div class="contact" >
+		 		<h3>Echange de maisons de vacances</h3></div>
+		
+		<script type="text/javascript"  src="web/js/menu.js"></script>
+
+
+
+     <h:form>
+         <p:panelGrid columns="2" columnClasses="centered">
+         
+    <f:facet name="header">
+        Déposer l'offre 
+    </f:facet>
+         	<h:outputLabel for="nomdeposeur" value="Nom: *" />
+             <p:inputText id="nomdeposeur" value="#{offreBean.nomdeposeur}" required="true" label="Nom" />
+          
+         <f:facet name="footer">
+        <p:commandButton value="Valider" icon="ui-icon-check" action="#{offrecontrol.creer(offreBean)}"/>
+    </f:facet>
+     </p:panelGrid>
+ </h:form>
+
+<div  align="center" class="footer-center">
+									Merci de nous-contactez sur :
+								</div>
+								
+								<div class="footer-left">
+								<p>Nesrine.Bradai@gmail.com</p>
+								</div>
+								
+								<div class="footer-right">
+								<p> ayech.manel@gmail.com</p>
+								</div>
+																	
+								<div class="clear"> </div>
+        
+        </div>	
+        
+        
+        
+    </h:body>
+</html>

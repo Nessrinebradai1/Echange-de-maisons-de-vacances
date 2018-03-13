@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Echange de maisons de vacances</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'></link>
+
+<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" ></link>
+
+<link href="web/css/slimmenu.css" rel="stylesheet" media="screen"></link>
+
+<link rel="stylesheet" type="text/css" href="web/css/magnific-popup.css"></link>
+
+<script src="web/js/jquery.min.js"></script>
+</h:head>
+	
+<h:body>
+
+<p:tabMenu >
+<p:menuitem value="Accueil" url="/login.xhtml" />
+    <p:menuitem value="S'inscrire" url="/inscription.xhtml" />
+    <p:menuitem value="Consulter" url="/ui/tabMenuDemos.jsf"  />
+    <p:menuitem value="Déposer" url="/ui/tabMenuDocumentation.jsf" />
+    <p:menuitem value="S'authentifier" url="/ui/tabMenuSupport.jsf" />
+    <p:menuitem value="Administrateur" url="/ui/tabMenuSocial.jsf"/>
+</p:tabMenu>
+			         
+			         <div class="content" id="home">
+			 
+		 	<div class="contact" >
+		 		<h3>Echange de maisons de vacances</h3></div>
+		
+		<script type="text/javascript"  src="web/js/menu.js"></script>
+		
+		
+		
+		<h:form>
+            <h:dataTable value="#{offreBean.listProduit}" var="listp" id="listTable" binding="#{offreBean.listTable}"
+             styleClass="order-table" headerClass="order-table-header" rowClasses="order-table-odd-row,order-table-even-row">
+ 
+                <h:column>
+                    <f:facet name="header">Supprimer</f:facet>
+                    <h:commandButton actionListener="#{offreBean.deletProduit(listp.id)}" id="commande" value="Supprimer"/>
+                </h:column>
+ 
+                <h:column>
+ 
+                    <f:facet name="header">ID du produit</f:facet>
+                    <h:outputText id="id" value="#{listp.id}" />
+                </h:column>
+ 
+                <h:column>
+                    <f:facet name="header">Nom du produit</f:facet>
+                    <h:outputText id="nom" value="#{listp.nom}" />
+                </h:column>
+ 
+                <h:column>
+                    <f:facet name="header">Catégorie du produit</f:facet>
+                    <h:outputText id="categorie" value="#{listp.categorie}"/>
+                </h:column>
+ 
+                <h:column>
+                    <f:facet name="header">Numéro du produit</f:facet>
+                    <h:outputText id="num" value="#{listp.numero}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Etat du produit</f:facet>
+                    <h:outputText id="etat" value="#{listp.etat}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>

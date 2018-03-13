@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Echange de maisons de vacances</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'></link>
+
+<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" ></link>
+
+<link href="web/css/slimmenu.css" rel="stylesheet" media="screen"></link>
+
+<link rel="stylesheet" type="text/css" href="web/css/magnific-popup.css"></link>
+
+<script src="web/js/jquery.min.js"></script>
+</h:head>
+	
+<h:body>
+
+<p:tabMenu >
+<p:menuitem value="Accueil" url="/login.xhtml" />
+    <p:menuitem value="S'inscrire" url="/inscription.xhtml" />
+    <p:menuitem value="Consulter" url="/inscription1.xhtml"  />
+    <p:menuitem value="Déposer" url="/inscription1.xhtml" />
+    <p:menuitem value="S'authentifier" url="/inscription1.xhtml" />
+    <p:menuitem value="Administrateur" url="/inscription1.xhtml"/>
+</p:tabMenu>
+			         
+			         <div class="content" id="home">
+			 
+		 	<div class="contact" >
+		 		<h3>Echange de maisons de vacances <br />
+		 		Merci de terminer votre processus d'inscription ou bien s'authentifier si vous êtes déjà membre </h3></div>
+		
+		<script type="text/javascript"  src="web/js/menu.js"></script>
+
+      <h:form id="iscri">
+       
+       <p:messages id="messag" showDetail="true" autoUpdate="true"/> 
+         <p:panelGrid columns="2" columnClasses="centered" id="inscri">
+         
+    <f:facet name="header">
+       Formulaire d'inscription
+    </f:facet>
+         	
+ <h:outputLabel for="nom" value="Nom: *" />
+    <p:inputText id="nom" value="#{client.nom}" requiredMessage="veuillez saisir un identifiant" label="nom" />
+    <h:outputLabel for="prenom" value="Prénom: *" />
+    <p:inputText id="prenom" value="#{client.prenom}" required="true" label="Prénom"/>
+          <h:outputText value="Sexe:" />
+        <p:selectOneRadio id="options" value="#{client.sexe}">
+            <f:selectItem itemLabel="Homme" itemValue="Homme" />
+            <f:selectItem itemLabel="Femme" itemValue="Femme" />
+            </p:selectOneRadio>
+            
+            <h:outputText for="naissance" value="Date de naissance:" />
+            <p:inputText id="naissance" value="#{client.datenaissance}" label="date">
+            <f:convertDateTime pattern="dd.MM.yyyy" />
+            </p:inputText>
+    
+    <h:outputLabel for="pays" value="Pays: *" />
+    <p:inputText id="pays" value="#{client.pays}" required="true" label="Pays" />
+ 
+    <h:outputLabel for="region" value="Région: *" />
+    <h:inputText id="region" value="#{client.region}" required="true" label="Région"/>
+    
+    <h:outputLabel for="tel" value="Tél: *" />
+    <p:inputText id="tel" value="#{client.tel}" required="true" label="Tél" />
+     <h:outputLabel for="email" value="Adresse mail: *" />
+    <p:inputText id="email" value="#{client.email}" required="true" label="Adresse mail" >
+    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" /> 
+    <!--  <p:message for="email" display="adresse mail" /> -->
+    </p:inputText>
+    <h:outputLabel for="motpasse" value="Mot de passe: *" />
+    <p:password id="motpasse" value="#{client.motpasse}" match="motp" required="true" label="Motpasse"/>
+
+   <h:outputLabel for="motp" value="Confirmation du mot de passe: *" />
+    <p:password id="motp" value="#{client.motpasse}" required="true" label="Motp"/>
+   
+   <!--  <p:growl id="messages" showDetail="true"/>   -->
+ 		
+    <f:facet name="footer">
+        <p:commandButton value="Valider"  icon="ui-icon-check" action="#{clientdao.creer(client)}"  />
+         
+    </f:facet>
+</p:panelGrid>
+
+    </h:form>
+        
+        <div  align="center" class="footer-center">
+									Merci de nous-contactez sur :
+								</div>
+								
+								<div class="footer-left">
+								<p>Nesrine.Bradai@gmail.com</p>
+								</div>
+								
+								<div class="footer-right">
+								<p> ayech.manel@gmail.com</p>
+								</div>
+																	
+								<div class="clear"> </div>
+        
+        </div>	
+        
+        
+        
+    </h:body>
+</html>
